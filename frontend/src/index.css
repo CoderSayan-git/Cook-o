@@ -1,0 +1,183 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  line-height: 1.2;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+}
+
+input, textarea {
+  font-family: inherit;
+}
+
+/* Custom scrollbar styles */
+.scrollbar-custom::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: #f3f4f6;
+  border-radius: 4px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+  border-radius: 4px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #2563eb, #7c3aed);
+}
+
+/* Recipe content styling */
+.recipe-content {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.7;
+}
+
+.recipe-content h1 {
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 2rem 0 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #3b82f6;
+}
+
+.recipe-content h1:first-child {
+  margin-top: 0;
+}
+
+.recipe-content h2 {
+  color: #e5e7eb;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.75rem 0;
+  color: #93c5fd;
+}
+
+.recipe-content h3 {
+  color: #d1d5db;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 1.25rem 0 0.5rem 0;
+  color: #60a5fa;
+}
+
+.recipe-content p {
+  margin-bottom: 1rem;
+  color: #d1d5db;
+  font-size: 1rem;
+}
+
+.recipe-content strong {
+  color: #60a5fa;
+  font-weight: 600;
+}
+
+.recipe-content em {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+.recipe-content hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #4b5563, transparent);
+  margin: 2rem 0;
+}
+
+/* List styling for ingredients and instructions */
+.recipe-content ul,
+.recipe-content ol {
+  margin: 0.5rem 0 1rem 1.5rem;
+  padding-left: 0;
+}
+
+.recipe-content li {
+  margin-bottom: 0.5rem;
+  color: #d1d5db;
+}
+
+.recipe-content ul li::marker {
+  color: #60a5fa;
+}
+
+.recipe-content ol li::marker {
+  color: #60a5fa;
+  font-weight: 600;
+}
+
+/* Table styling for recipe information */
+.recipe-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(55, 65, 81, 0.3), rgba(75, 85, 99, 0.3));
+  border: 1px solid #4b5563;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+.recipe-table th,
+.recipe-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #4b5563;
+}
+
+.recipe-table th {
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.recipe-table td {
+  color: #e5e7eb;
+  font-size: 0.95rem;
+}
+
+.recipe-table tr:nth-child(even) td {
+  background-color: rgba(55, 65, 81, 0.3);
+}
+
+.recipe-table tr:hover td {
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+.recipe-table tr:last-child td {
+  border-bottom: none;
+}
