@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 * {
   box-sizing: border-box;
 }
@@ -13,10 +15,42 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Preserve default HTML elements styling */
+html {
+  line-height: 1.15;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+button, input, optgroup, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+/* Ensure dropdown backgrounds are solid */
+.bg-dark-800 {
+  background-color: rgba(31, 41, 55, 0.95) !important;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.bg-dark-700 {
+  background-color: rgba(55, 65, 81, 0.95) !important;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
 body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
+  background: linear-gradient(135deg, #020617 0%, #0f172a 50%, #1e293b 100%);
+  background-attachment: fixed;
 }
 
 #root {
@@ -40,7 +74,8 @@ input, textarea {
   font-family: inherit;
 }
 
-/* Custom scrollbar styles */
+@layer components {
+  /* Custom scrollbar styles */
 .scrollbar-custom::-webkit-scrollbar {
   width: 8px;
 }
@@ -180,4 +215,5 @@ input, textarea {
 
 .recipe-table tr:last-child td {
   border-bottom: none;
+}
 }

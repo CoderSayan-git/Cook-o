@@ -52,7 +52,8 @@ const Navbar = () => {
                 {/* Profile Dropdown Button */}
                 <button
                   onClick={toggleProfileDropdown}
-                  className="hidden sm:flex items-center space-x-3 px-4 py-2 bg-dark-800 hover:bg-dark-700 text-white font-medium rounded-lg transition-all duration-200 border border-dark-600"
+                  className="hidden sm:flex items-center space-x-3 px-4 py-2 bg-dark-800/95 hover:bg-dark-700/95 text-white font-medium rounded-lg transition-all duration-200 border border-dark-600"
+                  style={{ backgroundColor: 'rgba(31, 41, 55, 0.95)' }}
                 >
                   {/* Profile Picture or Icon */}
                   <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center overflow-hidden">
@@ -72,7 +73,7 @@ const Navbar = () => {
 
                 {/* Dropdown Menu */}
                 {isProfileDropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-48 bg-dark-800 rounded-lg shadow-dark-lg border border-dark-600 py-2 z-50">
+                  <div className="absolute right-0 mt-2 w-48 bg-dark-800/95 backdrop-blur-xl rounded-lg shadow-dark-lg border border-dark-600 py-2 z-50" style={{ backgroundColor: 'rgba(31, 41, 55, 0.95)' }}>
                     <Link 
                       to="/profile"
                       className="flex items-center space-x-2 px-4 py-2 text-gray-300 hover:text-white hover:bg-dark-700 transition-colors duration-200"
@@ -121,7 +122,8 @@ const Navbar = () => {
             {/* Mobile menu button */}
             <button
               onClick={toggleMenu}
-              className="md:hidden p-2 rounded-lg bg-dark-800 hover:bg-dark-700 text-gray-300 hover:text-white transition-all duration-200 border border-dark-600"
+              className="md:hidden p-2 rounded-lg bg-dark-800/95 hover:bg-dark-700/95 text-gray-300 hover:text-white transition-all duration-200 border border-dark-600"
+              style={{ backgroundColor: 'rgba(31, 41, 55, 0.95)' }}
               aria-label="Toggle menu"
             >
               {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -136,7 +138,7 @@ const Navbar = () => {
               {user && (
                 <>
                   {/* User info for mobile */}
-                  <div className="flex items-center space-x-3 px-3 py-2 bg-dark-800 rounded-lg">
+                  <div className="flex items-center space-x-3 px-3 py-2 bg-dark-800/95 rounded-lg" style={{ backgroundColor: 'rgba(31, 41, 55, 0.95)' }}>
                     <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center overflow-hidden">
                       {user.profilePicture ? (
                         <img 
