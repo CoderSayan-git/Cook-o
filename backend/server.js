@@ -41,11 +41,7 @@ const corsOptions = {
   origin: function (origin, callback) {
     const allowedOrigins = [
       process.env.FRONTEND_URL,
-      'http://localhost:3000',
-      'http://localhost:5173',
-      'http://localhost:5174',
-      'http://127.0.0.1:5173',
-      'http://127.0.0.1:5174'
+      process.env.FRONTEND_URL_PRODUCTION,
     ].filter(Boolean); // Remove undefined values
     
     // Allow requests with no origin (like mobile apps or curl requests)
@@ -59,6 +55,12 @@ const corsOptions = {
       }
     }
     
+    // Allow Vercel preview deployments
+    if (origin && origin.includes('vercel.app')) {
+      console.log(`Allowing Vercel origin: ${origin}`);
+      return callback(null, true);
+    }
+    
     if (allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
@@ -67,8 +69,9 @@ const corsOptions = {
     }
   },
   credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept', 'Origin'],
+  optionsSuccessStatus: 200 // Some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
 app.use(cors(corsOptions));
