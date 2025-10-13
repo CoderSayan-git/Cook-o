@@ -2,8 +2,15 @@ import { createContext, useContext, useState, useEffect } from 'react'
 
 const AuthContext = createContext()
 
-// API base URL
+// API base URL with debugging
 const API_BASE_URL = `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000'}/api`
+
+// Debug logging
+console.log('Environment variables:', {
+  VITE_API_BASE_URL: import.meta.env.VITE_API_BASE_URL,
+  API_BASE_URL,
+  MODE: import.meta.env.MODE
+})
 
 export const useAuth = () => {
   const context = useContext(AuthContext)
@@ -16,6 +23,7 @@ export const useAuth = () => {
 // Helper function to make API calls with authentication
 const apiCall = async (endpoint, options = {}) => {
   const token = localStorage.getItem('token')
+  const url = `${API_BASE_URL}${endpoint}`
   
   const config = {
     headers: {
@@ -26,14 +34,34 @@ const apiCall = async (endpoint, options = {}) => {
     ...options
   }
 
-  const response = await fetch(`${API_BASE_URL}${endpoint}`, config)
-  const data = await response.json()
+  console.log('Making API call:', { url, method: config.method || 'GET', headers: config.headers })
 
-  if (!response.ok) {
-    throw new Error(data.message || 'API request failed')
+  try {
+    const response = await fetch(url, config)
+    
+    if (!response.ok) {
+      let errorMessage = `HTTP error! status: ${response.status}`
+      try {
+        const data = await response.json()
+        errorMessage = data.message || errorMessage
+      } catch (parseError) {
+        console.error('Error parsing response JSON:', parseError)
+      }
+      throw new Error(errorMessage)
+    }
+
+    const data = await response.json()
+    return data
+  } catch (error) {
+    console.error('API call failed:', { url, error: error.message, stack: error.stack })
+    
+    // Check if it's a network error
+    if (error.name === 'TypeError' && error.message.includes('fetch')) {
+      throw new Error(`Cannot connect to server at ${API_BASE_URL}. Please check if the backend is running.`)
+    }
+    
+    throw error
   }
-
-  return data
 }
 
 export const AuthProvider = ({ children }) => {
