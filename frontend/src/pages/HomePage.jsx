@@ -114,7 +114,7 @@ const HomePage = () => {
         headers.Authorization = `Bearer ${token}`
       }
 
-      const response = await fetch('http://localhost:5000/api/recipes/generate', {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000'}/api/recipes/generate`, {
         method: 'POST',
         headers,
         body: JSON.stringify(requestBody)

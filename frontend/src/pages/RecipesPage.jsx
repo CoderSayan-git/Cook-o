@@ -88,7 +88,7 @@ const RecipesPage = () => {
   const fetchRecipes = async () => {
     try {
       const token = localStorage.getItem('token')
-      const response = await fetch('http://localhost:5000/api/recipes', {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000'}/api/recipes`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -113,7 +113,7 @@ const RecipesPage = () => {
 
     try {
       const token = localStorage.getItem('token')
-      const response = await fetch(`http://localhost:5000/api/recipes/${recipeId}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000'}/api/recipes/${recipeId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -132,7 +132,7 @@ const RecipesPage = () => {
   const toggleFavorite = async (recipeId) => {
     try {
       const token = localStorage.getItem('token')
-      const response = await fetch(`http://localhost:5000/api/recipes/${recipeId}/favorite`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000'}/api/recipes/${recipeId}/favorite`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,
