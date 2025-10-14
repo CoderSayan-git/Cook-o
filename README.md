@@ -227,32 +227,12 @@ JWT_SECRET=your_256_bit_secret_key_minimum_32_characters
 JWT_EXPIRES_IN=7d
 GEMINI_API_KEY=your_google_gemini_api_key
 FRONTEND_URL=https://your-frontend-domain.com
-
-# Optional Configuration
-BCRYPT_SALT_ROUNDS=12
-MAX_RECIPE_LENGTH=10000
-RATE_LIMIT_WINDOW_MS=900000
-RATE_LIMIT_MAX_REQUESTS=100
 ```
 
 **Frontend (.env):**
 ```env
 VITE_API_BASE_URL=https://your-backend-api-url.com
 ```
-
-## 🛠️ Development
-
-### Adding New Features
-
-1. **Frontend**: Add new React components in `frontend/src/components/`
-2. **Backend**: Add new routes in `backend/server.js` or create separate route files
-3. **Styling**: Update `frontend/src/App.css` for new styles
-
-### Code Structure
-
-- **Frontend**: Uses functional React components with hooks
-- **Backend**: Express.js with modern ES6+ syntax
-- **Styling**: Custom CSS with modern features (gradients, animations, flexbox)
 
 ## 📱 Responsive Design
 
@@ -289,14 +269,6 @@ The app is fully responsive with breakpoints for:
 4. **Gemini API Errors**:
    - Validate GEMINI_API_KEY is correct
    - Check API quota and usage limits
-
-### Performance Optimization
-
-- Use MongoDB indexes for frequently queried fields
-- Implement Redis caching for repeated API calls
-- Configure CDN for static assets
-- Enable gzip compression
-- Use environment-specific configurations
 
 ## 🤝 Contributing
 
