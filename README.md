@@ -1,65 +1,123 @@
-# Recipe Generator App 🍳
+# Cook'o - AI-Powered Recipe Generator 🍳
 
-A modern, full-stack recipe generator application powered by advanced AI. Built with React + Vite for the frontend and Node.js + Express for the backend.
+A modern, full-stack recipe generator application powered by advanced AI. Transform any ingredient or craving into delicious, personalized recipes instantly. Built with React + Vite for the frontend and Node.js + Express for the backend.
 
 ## ✨ Features
 
-- **Dual Recipe Generation Modes:**
-  - 🎯 **Direct Recipe**: Ask for any recipe by name
-  - 🥘 **Ingredients-based**: Generate recipes from available ingredients
-- **Modern UI/UX**: Beautiful, responsive design with gradient backgrounds and smooth animations
-- **Real-time Generation**: Powered by advanced AI for intelligent recipe suggestions
-- **Cross-platform**: Works on desktop and mobile devices
+- **🎯 Direct Recipe Mode**: Ask for any recipe by name with customizable servings
+- **🥘 Ingredients-based Mode**: Generate recipes from available ingredients
+- **👤 User Authentication**: Secure signup/signin with JWT tokens
+- **📱 Recipe Management**: Save, favorite, and organize your generated recipes
+- **👨‍🍳 User Profiles**: Track your cooking journey and recipe history
+- **🎨 Modern UI/UX**: Beautiful teal-themed design with glassmorphism effects
+- **📱 Responsive Design**: Optimized for desktop, tablet, and mobile devices
+- **🚀 Real-time Generation**: Powered by Google Gemini AI for intelligent recipe suggestions
+- **🔍 Recipe Search**: Search through your saved recipes and ingredients
 
 ## 🏗️ Project Structure
 
 ```
-recipe-generator-app/
-├── frontend/          # React + Vite frontend
+Cook-o/
+├── frontend/                    # React + Vite frontend
+│   ├── public/                 # Static assets
 │   ├── src/
-│   │   ├── App.jsx    # Main React component
-│   │   ├── App.css    # Modern styling
-│   │   └── ...
+│   │   ├── components/         # Reusable UI components
+│   │   │   ├── Navbar.jsx     # Navigation component
+│   │   │   ├── Footer.jsx     # Footer component
+│   │   │   └── ProtectedRoute.jsx
+│   │   ├── contexts/          # React Context providers
+│   │   │   └── AuthContext.jsx
+│   │   ├── pages/             # Main application pages
+│   │   │   ├── HomePage.jsx   # Landing & recipe generation
+│   │   │   ├── SignInPage.jsx # User authentication
+│   │   │   ├── SignUpPage.jsx # User registration
+│   │   │   ├── ProfilePage.jsx # User profile management
+│   │   │   └── RecipesPage.jsx # Recipe collection
+│   │   ├── App.jsx            # Main React component
+│   │   └── index.css          # Global styles
 │   └── package.json
-├── backend/           # Node.js + Express backend
-│   ├── server.js      # API server with Gemini integration
-│   ├── .env.local     # Environment variables (not in repo)
+├── backend/                    # Node.js + Express backend
+│   ├── src/
+│   │   ├── config/           # Database & app configuration
+│   │   ├── controllers/      # Route handlers
+│   │   ├── middleware/       # Auth & validation middleware
+│   │   ├── models/          # MongoDB schemas
+│   │   ├── routes/          # API route definitions
+│   │   └── utils/           # Utility functions
+│   ├── server.js            # Main server entry point
 │   └── package.json
-└── package.json       # Root package with scripts
+└── README.md                # Project documentation
 ```
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 
-- Node.js (v18 or higher)
-- npm or yarn
-- Google Gemini API key
+- **Node.js** (v18 or higher)
+- **npm**
+- **MongoDB** (local installation or MongoDB Atlas)
+- **Google Gemini API key** 
 
-### Installation
+### Local Development Setup
 
-1. **Clone and install dependencies:**
+1. **Clone the repository:**
    ```bash
-   git clone <your-repo-url>
-   cd recipe-generator-app
-   npm run install:all
+   git clone https://github.com/CoderSayan-git/Cook-o.git
+   cd Cook-o
    ```
 
-2. **Set up environment variables:**
-   Create a `.env.local` file in the `backend/` directory:
+2. **Install dependencies:**
+   ```bash
+   # Install backend dependencies
+   cd backend
+   npm install
+   
+   # Install frontend dependencies
+   cd ../frontend
+   npm install
+   ```
+
+3. **Set up environment variables:**
+   
+   **Backend** - Create `.env` file in the `backend/` directory:
    ```env
+   # Server Configuration
+   PORT=5000
+   NODE_ENV=development
+   
+   # Database
+   MONGODB_URI=mongodb://localhost:27017/cooker-ai
+   # Or for MongoDB Atlas:
+   # MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/cooker-ai
+   
+   # JWT Configuration
+   JWT_SECRET=your_super_secret_jwt_key_here_make_it_long_and_secure
+   JWT_EXPIRES_IN=7d
+   
+   # Google Gemini AI
    GEMINI_API_KEY=your_google_gemini_api_key_here
+   
+   # CORS Configuration
+   FRONTEND_URL=http://localhost:5173
+   ```
+   
+   **Frontend** - Create `.env` file in the `frontend/` directory:
+   ```env
+   VITE_API_BASE_URL=http://localhost:5000
    ```
 
-3. **Start the development servers:**
+4. **Start the development servers:**
    ```bash
+   # Start backend (from backend directory)
+   cd backend
+   npm run dev
+   
+   # Start frontend (from frontend directory)
+   cd frontend
    npm run dev
    ```
-
-   This starts both:
-   - Frontend: http://localhost:5173
-   - Backend: http://localhost:3000
-
+   
+   
 ## 📝 Available Scripts
 
 - `npm run dev` - Start both frontend and backend in development mode
@@ -83,17 +141,50 @@ The backend runs on **port 3000** by default. Key features:
 - Health check endpoint: `/health`
 - Main API endpoint: `/generate`
 
-## 🌐 API Endpoints
 
-### POST `/generate`
+## 🌐 API Documentation
 
-Generate a recipe based on user input.
+### Authentication Endpoints
+
+#### POST `/api/auth/signup`
+Register a new user account.
+
+**Request Body:**
+```json
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "password": "securePassword123"
+}
+```
+
+#### POST `/api/auth/signin`
+Sign in an existing user.
+
+**Request Body:**
+```json
+{
+  "email": "john@example.com",
+  "password": "securePassword123"
+}
+```
+
+### Recipe Endpoints
+
+#### POST `/api/recipes/generate`
+Generate a recipe based on user input. (Requires Authentication)
+
+**Headers:**
+```
+Authorization: Bearer <jwt_token>
+```
 
 **Request Body:**
 ```json
 {
   "type": "direct",
-  "prompt": "pasta carbonara"
+  "prompt": "pasta carbonara",
+  "servings": 4
 }
 ```
 
@@ -106,24 +197,14 @@ or
 }
 ```
 
-**Response:**
-```json
-{
-  "text": "Generated recipe content..."
-}
-```
+#### GET `/api/recipes`
+Get user's saved recipes. (Requires Authentication)
 
-### GET `/health`
+#### DELETE `/api/recipes/:id`
+Delete a specific recipe. (Requires Authentication)
 
-Health check endpoint.
-
-**Response:**
-```json
-{
-  "status": "OK", 
-  "message": "Recipe Generator API is running!"
-}
-```
+#### PUT `/api/recipes/:id/favorite`
+Toggle recipe favorite status. (Requires Authentication)
 
 ## 🎨 UI Features
 
@@ -133,13 +214,41 @@ Health check endpoint.
 - **Accessibility**: Proper contrast ratios and keyboard navigation
 - **Real-time Feedback**: Loading states and error handling
 
-## 🔑 Environment Variables
+## � Security & Environment Variables
 
-Create a `.env.local` file in the `backend/` directory with:
+### Production Security Checklist
 
+- ✅ **Environment Variables**: All sensitive data stored in environment variables
+- ✅ **JWT Authentication**: Secure token-based authentication system
+- ✅ **Password Hashing**: Bcrypt for secure password storage
+- ✅ **Input Validation**: Comprehensive request validation
+- ✅ **CORS Configuration**: Proper cross-origin resource sharing setup
+- ✅ **Rate Limiting**: API rate limiting for abuse prevention
+- ✅ **Error Handling**: Secure error responses without sensitive data exposure
+
+### Required Environment Variables
+
+**Backend (.env):**
 ```env
-GEMINI_API_KEY=your_google_gemini_api_key_here
-PORT=3000  # Optional, defaults to 3000
+# Essential Configuration
+NODE_ENV=production
+PORT=5000
+MONGODB_URI=mongodb+srv://user:password@cluster.mongodb.net/database
+JWT_SECRET=your_256_bit_secret_key_minimum_32_characters
+JWT_EXPIRES_IN=7d
+GEMINI_API_KEY=your_google_gemini_api_key
+FRONTEND_URL=https://your-frontend-domain.com
+
+# Optional Configuration
+BCRYPT_SALT_ROUNDS=12
+MAX_RECIPE_LENGTH=10000
+RATE_LIMIT_WINDOW_MS=900000
+RATE_LIMIT_MAX_REQUESTS=100
+```
+
+**Frontend (.env):**
+```env
+VITE_API_BASE_URL=https://your-backend-api-url.com
 ```
 
 ## 🛠️ Development
@@ -171,14 +280,90 @@ The app is fully responsive with breakpoints for:
 4. Push to branch: `git push origin feature/new-feature`
 5. Submit a pull request
 
-## 📄 License
 
-This project is licensed under the ISC License - see the LICENSE file for details.
+## 🔧 Troubleshooting
+
+### Common Issues
+
+1. **MongoDB Connection Issues**:
+   - Ensure MongoDB is running locally or check Atlas connection string
+   - Verify network access and firewall settings
+
+2. **JWT Token Errors**:
+   - Check JWT_SECRET is set in environment variables
+   - Ensure token hasn't expired
+
+3. **API CORS Errors**:
+   - Verify FRONTEND_URL matches your frontend domain
+   - Check CORS middleware configuration
+
+4. **Gemini API Errors**:
+   - Validate GEMINI_API_KEY is correct
+   - Check API quota and usage limits
+
+### Performance Optimization
+
+- Use MongoDB indexes for frequently queried fields
+- Implement Redis caching for repeated API calls
+- Configure CDN for static assets
+- Enable gzip compression
+- Use environment-specific configurations
+
+## 🤝 Contributing
+
+We welcome contributions! Please follow these steps:
+
+1. **Fork the repository**
+2. **Create a feature branch**: `git checkout -b feature/amazing-feature`
+3. **Commit changes**: `git commit -m 'Add amazing feature'`
+4. **Push to branch**: `git push origin feature/amazing-feature`
+5. **Open a Pull Request**
+
+### Development Guidelines
+
+- Follow ESLint and Prettier configurations
+- Write unit tests for new features
+- Update documentation for API changes
+- Follow semantic commit message conventions
+
+## 📊 Tech Stack
+
+**Frontend:**
+- React 18 with Hooks
+- Vite for build tooling
+- Tailwind CSS for styling
+- Lucide React for icons
+- React Router for navigation
+
+**Backend:**
+- Node.js & Express.js
+- MongoDB with Mongoose ODM
+- JWT for authentication
+- Bcrypt for password hashing
+- Google Gemini AI API
+
+**DevOps & Deployment:**
+- Vercel (Frontend)
+- Railway/Heroku (Backend)
+- MongoDB Atlas (Database)
+- GitHub Actions (CI/CD)
+
 
 ## 👨‍💻 Author
 
-**Sayan Dhara** - Made with ❤️
+**Sayan Dhara** ([@CoderSayan-git](https://github.com/CoderSayan-git))
+
+Made with ❤️ for food lovers and cooking enthusiasts worldwide.
+
+## 🙏 Acknowledgments
+
+- [Google Gemini AI](https://ai.google.dev/) for powerful recipe generation
+- [Lucide](https://lucide.dev/) for beautiful icons
+- [Tailwind CSS](https://tailwindcss.com/) for utility-first styling
+- Open source community for inspiration and tools
 
 ---
+
+**⭐ If you found this project helpful, please give it a star on GitHub!**
 
 *Happy Cooking! 🍳✨*
