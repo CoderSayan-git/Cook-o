@@ -38,7 +38,7 @@ const SignInPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-dark-900/50 backdrop-blur-sm flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-teal-900 backdrop-blur-sm flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         {/* Header */}
         <div className="text-center">
@@ -56,11 +56,11 @@ const SignInPage = () => {
             </div>
           </div>
           <h2 className="text-3xl font-bold text-white mb-2">Welcome back!</h2>
-          <p className="text-gray-400">Sign in to your account to continue cooking</p>
+          <p className="text-gray-300">Sign in to your account to continue cooking</p>
         </div>
 
         {/* Sign In Form */}
-        <div className="bg-dark-800/50 backdrop-blur-xl rounded-3xl p-8 border border-dark-700/50 shadow-dark-lg">
+        <div className="bg-cyan-800/50 backdrop-blur-xl rounded-3xl p-8 border border-dark-700/50 shadow-dark-lg">
           <form className="space-y-6" onSubmit={handleSubmit}>
             {error && (
               <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4 text-red-400 text-sm">
@@ -163,7 +163,7 @@ const SignInPage = () => {
 
             {/* Sign up link */}
             <div className="text-center">
-              <span className="text-gray-400">Don't have an account? </span>
+              <span className="text-gray-300">Don't have an account? </span>
               <Link to="/signup" className="text-blue-400 hover:text-blue-300 font-medium transition-colors">
                 Sign up
               </Link>
@@ -172,10 +172,10 @@ const SignInPage = () => {
         </div>
 
         {/* Demo credentials */}
-        <div className="bg-dark-800/30 border border-dark-700/30 rounded-xl p-4 text-center">
-          <p className="text-gray-400 text-sm mb-2">Demo credentials:</p>
-          <p className="text-gray-300 text-sm">Email: demo@cooker.ai</p>
-          <p className="text-gray-300 text-sm">Password: demo123</p>
+        <div className="bg-teal-800/50 border border-dark-700/50 rounded-xl p-4 text-center">
+          <p className="text-gray-300 text-sm mb-2 font-medium">Demo credentials:</p>
+          <p className="text-gray-200 text-sm font-mono">Email: demo@cooker.ai</p>
+          <p className="text-gray-200 text-sm font-mono">Password: demo123</p>
         </div>
       </div>
     </div>

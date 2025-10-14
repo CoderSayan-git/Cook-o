@@ -4,7 +4,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-dark-950 border-t border-dark-800">
+    <footer className="bg-slate-700 border-t border-dark-700">
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -23,8 +23,8 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed mb-6 max-w-md">
-              Your AI-powered culinary companion. Generate amazing recipes from ingredients you have or discover new dishes with our advanced recipe generator powered by Google Gemini AI.
+            <p className="text-gray-300 text-sm leading-relaxed mb-6 max-w-md pb-4">
+              Your AI-powered culinary companion. Generate amazing recipes from ingredients you have or discover new dishes with our advanced recipe generator.
             </p>
             <div className="flex space-x-4">
               <a
@@ -60,30 +60,30 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-semibold text-lg mb-4">Quick Links</h3>
-            <ul className="space-y-3">
+            <h3 className="text-white font-semibold text-lg pb-2">Quick Links</h3>
+            <ul className="space-y-1">
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">
+                <a href="#" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm">
                   Home
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">
+                <a href="#" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm">
                   Recipe Generator
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">
+                <a href="#" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm">
                   Browse Recipes
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">
+                <a href="#" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm">
                   About Us
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">
+                <a href="#" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm">
                   Contact
                 </a>
               </li>
@@ -92,30 +92,30 @@ const Footer = () => {
 
           {/* Features */}
           <div>
-            <h3 className="text-white font-semibold text-lg mb-4">Features</h3>
-            <ul className="space-y-3">
+            <h3 className="text-white font-semibold text-lg pb-2">Features</h3>
+            <ul className="space-y-1">
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">
+                <a href="#" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm">
                   AI Recipe Generation
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">
+                <a href="#" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm">
                   Ingredient-based Search
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">
+                <a href="#" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm">
                   Dietary Preferences
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">
+                <a href="#" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm">
                   Cooking Tips
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">
+                <a href="#" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm">
                   Nutritional Info
                 </a>
               </li>
@@ -125,13 +125,13 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-dark-800 bg-dark-950">
+      <div className="border-t border-dark-700 bg-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
-            <div className="flex items-center space-x-2 text-gray-400 text-sm">
+            <div className="flex items-center space-x-2 text-gray-300 text-sm">
               <span>© {currentYear} COOK'o. All rights reserved.</span>
             </div>
-            <div className="flex items-center space-x-2 text-gray-400 text-sm">
+            <div className="flex items-center space-x-2 text-gray-300 text-sm">
               <span>Made with</span>
               <Heart className="w-4 h-4 text-red-500 animate-pulse" />
               <span>by</span>
@@ -140,17 +140,17 @@ const Footer = () => {
           </div>
           
           {/* Legal Links */}
-          <div className="flex flex-wrap justify-center sm:justify-start space-x-6 mt-4 pt-4 border-t border-dark-800">
-            <a href="#" className="text-gray-500 hover:text-gray-400 transition-colors duration-200 text-xs">
+          <div className="flex flex-wrap justify-center sm:justify-start space-x-6 mt-4 pt-4 border-t border-dark-700">
+            <a href="#" className="text-gray-400 hover:text-gray-300 transition-colors duration-200 text-xs">
               Privacy Policy
             </a>
-            <a href="#" className="text-gray-500 hover:text-gray-400 transition-colors duration-200 text-xs">
+            <a href="#" className="text-gray-400 hover:text-gray-300 transition-colors duration-200 text-xs">
               Terms of Service
             </a>
-            <a href="#" className="text-gray-500 hover:text-gray-400 transition-colors duration-200 text-xs">
+            <a href="#" className="text-gray-400 hover:text-gray-300 transition-colors duration-200 text-xs">
               Cookie Policy
             </a>
-            <a href="#" className="text-gray-500 hover:text-gray-400 transition-colors duration-200 text-xs">
+            <a href="#" className="text-gray-400 hover:text-gray-300 transition-colors duration-200 text-xs">
               Disclaimer
             </a>
           </div>

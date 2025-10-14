@@ -61,9 +61,9 @@ const RecipesPage = () => {
       // Handle horizontal rules
       .replace(/^---$/gim, '<hr class="my-6 border-gray-600">')
       // Handle headings with proper styling
-      .replace(/^### (.*$)/gim, '<h3 class="text-xl font-semibold text-blue-300 mt-6 mb-3">$1</h3>')
-      .replace(/^## (.*$)/gim, '<h2 class="text-2xl font-bold text-white mt-8 mb-4">$1</h2>')
-      .replace(/^# (.*$)/gim, '<h1 class="text-3xl font-bold text-white mt-8 mb-6">$1</h1>')
+      .replace(/^### (.*$)/gim, '<h3 class="text-xl font-semibold text-blue-300 py-4">$1</h3>')
+      .replace(/^## (.*$)/gim, '<h2 class="text-2xl font-bold text-white py-4">$1</h2>')
+      .replace(/^# (.*$)/gim, '<h1 class="text-3xl font-bold text-white mt-12 mb-8">$1</h1>')
       // Handle bold and italic
       .replace(/\*\*(.*?)\*\*/g, '<strong class="text-blue-300 font-semibold">$1</strong>')
       .replace(/\*(.*?)\*/g, '<em class="text-gray-300 italic">$1</em>')
@@ -166,7 +166,7 @@ const RecipesPage = () => {
 
   if (!user) {
     return (
-      <div className="min-h-screen bg-dark-900/50 backdrop-blur-sm flex items-center justify-center">
+      <div className="min-h-screen bg-teal-900 backdrop-blur-sm flex items-center justify-center">
         <div className="text-center">
           <ChefHat className="mx-auto mb-4 text-blue-400 animate-bounce" size={48} />
           <p className="text-gray-400">Please sign in to view your recipes</p>
@@ -176,20 +176,20 @@ const RecipesPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-dark-900/50 backdrop-blur-sm py-12">
+    <div className="min-h-screen bg-teal-900 backdrop-blur-sm py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
             My Recipe Collection
           </h1>
-          <p className="text-gray-300 text-lg">
+          <p className="text-gray-300 text-lg pt-2">
             {recipes.length} recipe{recipes.length !== 1 ? 's' : ''} in your collection
           </p>
         </div>
 
         {/* Search and Filter */}
-        <div className="bg-dark-800/50 backdrop-blur-xl rounded-3xl p-6 border border-dark-700/50 shadow-dark-lg mb-8">
+        <div className="bg-cyan-800/70 backdrop-blur-xl rounded-3xl p-6 border border-dark-700/50 shadow-dark-lg mb-8">
           <div className="flex flex-col md:flex-row gap-4 items-center">
             <div className="flex-1 relative">
               <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
@@ -224,7 +224,7 @@ const RecipesPage = () => {
             {filteredRecipes.map((recipe) => (
               <div
                 key={recipe._id}
-                className="bg-dark-800/50 backdrop-blur-xl rounded-2xl p-6 border border-dark-700/50 shadow-dark hover:border-blue-500/50 transition-all duration-200 flex flex-col h-[320px]"
+                className="bg-cyan-800/50 backdrop-blur-xl rounded-2xl p-6 border border-dark-700/50 shadow-dark hover:border-blue-500/50 transition-all duration-200 flex flex-col h-[320px]"
               >
                 {/* Header with title and favorite button - fixed height */}
                 <div className="flex justify-between items-start mb-4 min-h-[60px]">
@@ -302,7 +302,7 @@ const RecipesPage = () => {
         {/* Recipe Modal */}
         {showModal && selectedRecipe && (
           <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-            <div className="bg-dark-800 rounded-3xl p-8 max-w-2xl max-h-[80vh] overflow-y-auto border border-dark-700">
+            <div className="bg-dark-800 rounded-3xl p-8 max-w-6xl w-full max-h-[85vh] overflow-y-auto border border-dark-700">
               <div className="flex justify-between items-start mb-6">
                 <h2 className="text-2xl font-bold text-white">{selectedRecipe.title}</h2>
                 <button

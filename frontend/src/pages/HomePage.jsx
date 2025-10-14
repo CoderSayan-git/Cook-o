@@ -64,8 +64,8 @@ const HomePage = () => {
       // Handle horizontal rules
       .replace(/^---$/gim, '<hr class="my-6 border-gray-600">')
       // Handle headings with proper styling
-      .replace(/^### (.*$)/gim, '<h3 class="text-xl font-semibold text-blue-300 mt-6 mb-3">$1</h3>')
-      .replace(/^## (.*$)/gim, '<h2 class="text-2xl font-bold text-white mt-8 mb-4">$1</h2>')
+      .replace(/^### (.*$)/gim, '<h3 class="text-xl font-semibold text-blue-300 py-4">$1</h3>')
+      .replace(/^## (.*$)/gim, '<h2 class="text-2xl font-bold text-white py-4">$1</h2>')
       .replace(/^# (.*$)/gim, '<h1 class="text-3xl font-bold text-white mt-8 mb-6">$1</h1>')
       // Handle bold and italic
       .replace(/\*\*(.*?)\*\*/g, '<strong class="text-blue-300 font-semibold">$1</strong>')
@@ -179,29 +179,27 @@ const HomePage = () => {
   // Landing page for non-authenticated users
   if (!user) {
     return (
-      <div className="min-h-screen bg-dark-900/50 backdrop-blur-sm">
+      <div className="min-h-screen bg-teal-900 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero Section */}
           <div className="pt-16 pb-12 text-center">
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 blur-3xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-400/30 via-violet-500/30 to-purple-600/30 blur-3xl"></div>
               <div className="relative z-10">
                 <ChefHat className="mx-auto mb-6 text-blue-400 animate-bounce-slow" size={80} />
-                <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
+                <h1 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-purple-900 via-violet-700 to-purple-800 bg-clip-text text-transparent">
                   Welcome to Cook'o
                 </h1>
-                <p className="text-gray-300 text-xl md:text-2xl mb-8 max-w-4xl mx-auto leading-relaxed">
-                  Your Personal AI Chef Assistant - Transform any ingredient or craving into delicious, personalized recipes instantly.
-                </p>
-                <div className="flex items-center justify-center gap-2 text-yellow-400 animate-pulse mb-8">
-                  <Sparkles className="animate-sparkle" size={28} />
-                  <span className="text-3xl font-bold italic tracking-wide">Powered by Gemini AI</span>
-                  <Sparkles className="animate-sparkle" size={28} />
+                <div className="flex items-center justify-center w-full my-4">
+                  <p className="text-gray-800 text-xl md:text-2xl mb-8 max-w-4xl mx-auto leading-relaxed text-center font-semibold">
+                    Your Personal AI Chef Assistant - Transform any ingredient or craving into delicious, personalized recipes instantly.
+                  </p>
                 </div>
-                <div className="flex gap-6 justify-center flex-wrap">
+
+                <div className="flex gap-6 justify-center flex-wrap mt-8">
                   <Link 
                     to="/signup"
-                    className="flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold text-xl rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-dark-lg"
+                    className="flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-purple-600 to-violet-700 hover:from-purple-700 hover:to-violet-800 text-white font-bold text-xl rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-dark-lg"
                   >
                     <Sparkles className="w-6 h-6" />
                     Get Started Free
@@ -209,7 +207,7 @@ const HomePage = () => {
                   </Link>
                   <Link 
                     to="/signin"
-                    className="flex items-center gap-3 px-10 py-5 border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white font-bold text-xl rounded-2xl transition-all duration-300 transform hover:scale-105"
+                    className="flex items-center gap-3 px-10 py-5 border-2 border-purple-500 text-purple-600 hover:bg-purple-500 hover:text-white font-bold text-xl rounded-2xl transition-all duration-300 transform hover:scale-105"
                   >
                     Sign In
                   </Link>
@@ -219,78 +217,82 @@ const HomePage = () => {
           </div>
 
           {/* Features Section */}
-          <div className="pb-16">
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="bg-dark-800/50 backdrop-blur-xl rounded-3xl p-8 border border-dark-700/50 shadow-dark-lg text-center hover:transform hover:scale-105 transition-all duration-300">
-                <Zap className="mx-auto mb-4 text-yellow-400" size={48} />
-                <h3 className="text-xl font-bold text-white mb-3">Instant Recipes</h3>
-                <p className="text-gray-300">Generate personalized recipes in seconds using advanced AI technology.</p>
+          <div className="pb-16 pt-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+              <div className="bg-cyan-700 backdrop-blur-xl rounded-3xl p-8 border border-purple-200/50 shadow-xl text-center hover:transform hover:scale-105 transition-all duration-300">
+                <Zap className="mx-auto mb-4 text-yellow-500" size={48} />
+                <h3 className="text-xl font-black text-gray-900 mb-3">Instant Recipes</h3>
+                <p className="text-gray-800 font-medium">Generate personalized recipes in seconds using advanced AI technology.</p>
               </div>
               
-              <div className="bg-dark-800/50 backdrop-blur-xl rounded-3xl p-8 border border-dark-700/50 shadow-dark-lg text-center hover:transform hover:scale-105 transition-all duration-300">
-                <ChefHat className="mx-auto mb-4 text-blue-400" size={48} />
-                <h3 className="text-xl font-bold text-white mb-3">Smart Cooking</h3>
-                <p className="text-gray-300">Two ways to cook: Ask for specific dishes or use ingredients you have.</p>
+              <div className="bg-cyan-700 backdrop-blur-xl rounded-3xl p-8 border border-purple-200/50 shadow-xl text-center hover:transform hover:scale-105 transition-all duration-300">
+                <ChefHat className="mx-auto mb-4 text-purple-500" size={48} />
+                <h3 className="text-xl font-black text-gray-900 mb-3">Smart Cooking</h3>
+                <p className="text-gray-800 font-medium">Two ways to cook: Ask for specific dishes or use ingredients you have.</p>
               </div>
               
-              <div className="bg-dark-800/50 backdrop-blur-xl rounded-3xl p-8 border border-dark-700/50 shadow-dark-lg text-center hover:transform hover:scale-105 transition-all duration-300">
-                <Heart className="mx-auto mb-4 text-red-400" size={48} />
-                <h3 className="text-xl font-bold text-white mb-3">Save Favorites</h3>
-                <p className="text-gray-300">Keep track of your favorite recipes and build your personal cookbook.</p>
+              <div className="bg-cyan-700 backdrop-blur-xl rounded-3xl p-8 border border-purple-200/50 shadow-xl text-center hover:transform hover:scale-105 transition-all duration-300">
+                <Heart className="mx-auto mb-4 text-red-500" size={48} />
+                <h3 className="text-xl font-black text-gray-900 mb-3">Save Favorites</h3>
+                <p className="text-gray-800 font-medium">Keep track of your favorite recipes and build your personal cookbook.</p>
               </div>
               
-              <div className="bg-dark-800/50 backdrop-blur-xl rounded-3xl p-8 border border-dark-700/50 shadow-dark-lg text-center hover:transform hover:scale-105 transition-all duration-300">
-                <Users className="mx-auto mb-4 text-green-400" size={48} />
-                <h3 className="text-xl font-bold text-white mb-3">Personal Profile</h3>
-                <p className="text-gray-300">Track your cooking journey and recipe generation history.</p>
+              <div className="bg-cyan-700 backdrop-blur-xl rounded-3xl p-8 border border-purple-200/50 shadow-xl text-center hover:transform hover:scale-105 transition-all duration-300">
+                <Users className="mx-auto mb-4 text-green-500" size={48} />
+                <h3 className="text-xl font-black text-gray-900 mb-3">Personal Profile</h3>
+                <p className="text-gray-800 font-medium">Track your cooking journey and recipe generation history.</p>
               </div>
             </div>
           </div>
 
           {/* How it Works Section */}
-          <div className="pb-16">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-white mb-4">How Cook'o Works</h2>
-              <p className="text-gray-300 text-xl max-w-3xl mx-auto">Simple, fast, and intelligent recipe generation in just a few steps</p>
+          <div className="pb-16 pt-12">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-black text-gray-900 mb-4">How Cook'o Works</h2>
+              <div className="flex items-center justify-center w-full my-4">
+                <p className="text-gray-800 text-xl max-w-3xl mx-auto text-center font-semibold">Simple, fast, and intelligent recipe generation in just a few steps</p>
+              </div>
             </div>
             
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-10">
               <div className="text-center">
-                <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+                <div className="bg-gradient-to-r from-purple-500 to-violet-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
                   <span className="text-white font-bold text-2xl">1</span>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Choose Your Method</h3>
-                <p className="text-gray-300 text-lg">Ask for a specific recipe or tell us what ingredients you have available.</p>
+                <h3 className="text-2xl font-black text-gray-900 mb-4">Choose Your Method</h3>
+                <p className="text-gray-800 text-lg font-medium">Ask for a specific recipe or tell us what ingredients you have available.</p>
               </div>
               
               <div className="text-center">
-                <div className="bg-gradient-to-r from-purple-500 to-pink-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+                <div className="bg-gradient-to-r from-violet-500 to-purple-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
                   <span className="text-white font-bold text-2xl">2</span>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">AI Magic Happens</h3>
-                <p className="text-gray-300 text-lg">Our Gemini AI analyzes your request and creates a personalized recipe instantly.</p>
+                <h3 className="text-2xl font-black text-gray-900 mb-4">AI Magic Happens</h3>
+                <p className="text-gray-800 text-lg font-medium">Our AI analyzes your request and creates a personalized recipe instantly.</p>
               </div>
               
               <div className="text-center">
-                <div className="bg-gradient-to-r from-pink-500 to-red-600 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+                <div className="bg-gradient-to-r from-purple-600 to-violet-700 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
                   <span className="text-white font-bold text-2xl">3</span>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Cook & Enjoy</h3>
-                <p className="text-gray-300 text-lg">Follow the detailed instructions and enjoy your delicious homemade meal!</p>
+                <h3 className="text-2xl font-black text-gray-900 mb-4">Cook & Enjoy</h3>
+                <p className="text-gray-800 text-lg font-medium">Follow the detailed instructions and enjoy your delicious homemade meal!</p>
               </div>
             </div>
           </div>
 
           {/* CTA Section */}
-          <div className="pb-16">
-            <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-3xl p-12 text-center border border-blue-400/30">
-              <h2 className="text-4xl font-bold text-white mb-6">Ready to Start Cooking?</h2>
-              <p className="text-gray-300 text-xl mb-8 max-w-2xl mx-auto">
-                Join thousands of home cooks who are already creating amazing meals with Cook'o
-              </p>
+          <div className="pb-16 pt-12">
+            <div className="bg-gradient-to-r from-purple-500/20 to-violet-500/20 rounded-3xl p-12 text-center border border-purple-400/30">
+              <h2 className="text-4xl font-black text-gray-900 mb-6">Ready to Start Cooking?</h2>
+              <div className="flex items-center justify-center w-full mb-8 my-4">
+                <p className="text-gray-800 text-xl mx-auto text-center whitespace-nowrap font-semibold">
+                  Join thousands of home cooks who are already creating amazing meals with Cook'o
+                </p>
+              </div>
               <Link 
                 to="/signup"
-                className="inline-flex items-center gap-3 px-12 py-6 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold text-2xl rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-dark-lg"
+                className="inline-flex items-center gap-3 px-12 py-6 bg-gradient-to-r from-purple-600 to-violet-700 hover:from-purple-700 hover:to-violet-800 text-white font-bold text-2xl rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-dark-lg"
               >
                 <ChefHat className="w-8 h-8" />
                 Start Cooking Now
@@ -305,38 +307,35 @@ const HomePage = () => {
 
   // Recipe generation interface for authenticated users
   return (
-    <div className="min-h-screen bg-dark-900/50 backdrop-blur-sm">
+    <div className="min-h-screen bg-cyan-900 backdrop-blur-sm">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Welcome Back Section */}
-        <div className="pt-16 pb-8 text-center">
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 blur-3xl"></div>
-            <div className="relative z-10">
+        <div className="pt-16 pb-10">
+          <div className="relative flex flex-col items-center justify-center">
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-400/30 via-violet-500/30 to-purple-600/30 blur-3xl"></div>
+            <div className="relative z-10 flex flex-col items-center justify-center w-full">
               <ChefHat className="mx-auto mb-6 text-blue-400 animate-bounce-slow" size={64} />
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
+              <h1 className="text-4xl md:text-6xl font-black mb-6 bg-gradient-to-r from-purple-900 via-violet-700 to-purple-800 bg-clip-text text-transparent text-center">
                 Welcome back, {user.name} !
               </h1>
-              <p className="text-gray-300 text-lg md:text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
-                Ready to cook something delicious? Let's generate your next amazing recipe!@!
-              </p>
-              <div className="flex items-center justify-center gap-2 text-yellow-400 animate-pulse">
-                <Sparkles className="animate-sparkle" size={24} />
-                <span className="text-2xl font-bold italic tracking-wide">Powered by Gemini AI</span>
-                <Sparkles className="animate-sparkle" size={24} />
+              <div className="flex items-center justify-center w-full mt-4">
+                <p className="text-gray-800 text-lg md:text-xl mb-8 max-w-3xl mx-auto leading-relaxed text-center font-semibold">
+                  Ready to cook something delicious? Let's generate your next amazing recipe!@!
+                </p>
               </div>
             </div>
           </div>
         </div>
 
         {/* Recipe Generation Section */}
-        <div className="pb-16">
-          <div className="bg-dark-800/50 backdrop-blur-xl rounded-3xl p-8 border border-dark-700/50 shadow-dark-lg">
+        <div className="pb-16 pt-8">
+          <div className="bg-teal-800/50 backdrop-blur-xl rounded-3xl p-10 border border-purple-200/50 shadow-xl">
             <div className="flex flex-col gap-4">
               <div className="flex justify-center gap-4 md:gap-8 mb-2 flex-wrap" style={{ margin: '0 0 0 0' }}>
-                <label className={`flex items-center gap-3 px-8 py-4 rounded-2xl cursor-pointer transition-all duration-300 border-2 font-semibold hover:scale-105 hover:shadow-dark text-lg ${
+                <label className={`flex items-center gap-3 px-8 py-4 rounded-2xl cursor-pointer transition-all duration-300 border-2 font-semibold hover:scale-105 hover:shadow-lg text-lg ${
                   promptType === 'direct' 
-                    ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white border-blue-400 shadow-dark' 
-                    : 'bg-dark-700/50 text-gray-300 border-dark-600 hover:bg-dark-600/50 hover:border-dark-500'
+                    ? 'bg-gradient-to-r from-purple-500 to-violet-600 text-white border-purple-400 shadow-lg' 
+                    : 'bg-gradient-to-r from-gray-600 to-gray-700 text-white border-teal-300 hover:border-teal-400'
                 }`}>
                   <input 
                     type="radio" 
@@ -344,14 +343,14 @@ const HomePage = () => {
                     value="direct" 
                     checked={promptType === 'direct'}
                     onChange={(e) => setPromptType(e.target.value)}
-                    className="accent-blue-500 w-5 h-5"
+                    className="accent-purple-500 w-5 h-5"
                   />
                   <span>Direct Recipe</span>
                 </label>
-                <label className={`flex items-center gap-3 px-8 py-4 rounded-2xl cursor-pointer transition-all duration-300 border-2 font-semibold hover:scale-105 hover:shadow-dark text-lg ${
+                <label className={`flex items-center gap-3 px-8 py-4 rounded-2xl cursor-pointer transition-all duration-300 border-2 font-semibold hover:scale-105 hover:shadow-lg text-lg ${
                   promptType === 'ingredients' 
-                    ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white border-blue-400 shadow-dark' 
-                    : 'bg-dark-700/50 text-gray-300 border-dark-600 hover:bg-dark-600/50 hover:border-dark-500'
+                    ? 'bg-gradient-to-r from-purple-500 to-violet-600 text-white border-purple-400 shadow-lg' 
+                      : 'bg-gradient-to-r from-gray-600 to-gray-700 text-white border-teal-300 hover:border-teal-400'
                 }`}>
                   <input 
                     type="radio" 
@@ -359,7 +358,7 @@ const HomePage = () => {
                     value="ingredients" 
                     checked={promptType === 'ingredients'}
                     onChange={(e) => setPromptType(e.target.value)}
-                    className="accent-blue-500 w-5 h-5"
+                    className="accent-purple-500 w-5 h-5"
                   />
                   <span>Ingredients-based Recipe</span>
                 </label>
@@ -375,19 +374,19 @@ const HomePage = () => {
                         onChange={(e) => setDirectPrompt(e.target.value)}
                         onKeyDown={handleKeyDown}
                         placeholder="Ask for any recipe directly (e.g., 'Spaghetti')"
-                        className="w-full px-6 py-4 border-2 border-dark-600 rounded-2xl text-lg bg-dark-700/50 text-white backdrop-blur-sm transition-all duration-300 outline-none focus:border-blue-500 focus:shadow-dark focus:bg-dark-600/50 placeholder:text-gray-400 placeholder:italic disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="w-full px-6 py-4 border-2 border-gray-300 rounded-2xl text-lg bg-white/90 text-gray-800 backdrop-blur-sm transition-all duration-300 outline-none focus:border-purple-500 focus:shadow-lg focus:bg-white placeholder:text-gray-500 placeholder:italic disabled:opacity-50 disabled:cursor-not-allowed"
                         disabled={isLoading}
                       />
                     </div>
                     <div className="flex flex-col gap-1">
-                      <label className="text-gray-300 font-medium text-sm">Number of people</label>
+                      <label className="text-gray-600 font-medium text-sm">Number of people</label>
                       <input
                         type="number"
                         min="1"
                         max="20"
                         value={servings}
                         onChange={(e) => setServings(e.target.value)}
-                        className="w-24 px-4 py-4 border-2 border-dark-600 rounded-2xl text-lg bg-dark-700/50 text-white backdrop-blur-sm transition-all duration-300 outline-none focus:border-blue-500 focus:shadow-dark focus:bg-dark-600/50 disabled:opacity-50 disabled:cursor-not-allowed text-center"
+                        className="w-24 px-4 py-4 border-2 border-gray-300 rounded-2xl text-lg bg-white/90 text-gray-800 backdrop-blur-sm transition-all duration-300 outline-none focus:border-purple-500 focus:shadow-lg focus:bg-white disabled:opacity-50 disabled:cursor-not-allowed text-center"
                         disabled={isLoading}
                       />
                     </div>
@@ -476,7 +475,7 @@ const HomePage = () => {
                 <button 
                   onClick={handleSubmit} 
                   disabled={isLoading}
-                  className="flex items-center gap-3 px-8 py-4 border-none rounded-2xl text-lg font-semibold cursor-pointer transition-all duration-300 outline-none bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-dark hover:scale-105 hover:shadow-dark-lg hover:from-blue-600 hover:to-purple-700 active:scale-100 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
+                  className="flex items-center gap-3 px-8 py-4 border-none rounded-2xl text-lg font-semibold cursor-pointer transition-all duration-300 outline-none bg-gradient-to-r from-purple-500 to-violet-600 text-white shadow-dark hover:scale-105 hover:shadow-dark-lg hover:from-purple-600 hover:to-violet-700 active:scale-100 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
                 >
                   {isLoading ? (
                     <>
@@ -502,11 +501,11 @@ const HomePage = () => {
 
               {response && (
                 <div className="mt-8">
-                  <h3 className="text-center text-white text-2xl font-bold mb-6 flex items-center justify-center gap-2">
+                  <h3 className="text-center text-white text-2xl font-bold py-6 flex items-center justify-center gap-2">
                     <ChefHat size={24} className="text-blue-400" />
                     Your Recipe
                   </h3>
-                  <div className="bg-gradient-to-br from-dark-700/80 to-dark-800/80 backdrop-blur-xl rounded-3xl p-8 border border-dark-600/50 shadow-dark-lg min-h-[100px]">
+                  <div className="bg-cyan-800/70 backdrop-blur-xl rounded-3xl p-8 border border-dark-600/50 shadow-dark-lg min-h-[100px]">
                     <div 
                       className="recipe-content text-base text-gray-200 leading-relaxed"
                       dangerouslySetInnerHTML={{ __html: convertMarkdownToHTML(response) }}

@@ -13,7 +13,7 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-        <div className="min-h-screen bg-gradient-to-br from-dark-950 via-dark-900 to-dark-800 bg-fixed">
+        <div className="min-h-screen bg-teal-900 bg-fixed">
           <Navbar />
           
           <Routes>

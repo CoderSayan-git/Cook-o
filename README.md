@@ -1,6 +1,6 @@
 # Recipe Generator App 🍳
 
-A modern, full-stack recipe generator application powered by Google's Gemini AI. Built with React + Vite for the frontend and Node.js + Express for the backend.
+A modern, full-stack recipe generator application powered by advanced AI. Built with React + Vite for the frontend and Node.js + Express for the backend.
 
 ## ✨ Features
 
@@ -8,7 +8,7 @@ A modern, full-stack recipe generator application powered by Google's Gemini AI.
   - 🎯 **Direct Recipe**: Ask for any recipe by name
   - 🥘 **Ingredients-based**: Generate recipes from available ingredients
 - **Modern UI/UX**: Beautiful, responsive design with gradient backgrounds and smooth animations
-- **Real-time Generation**: Powered by Google Gemini AI for intelligent recipe suggestions
+- **Real-time Generation**: Powered by advanced AI for intelligent recipe suggestions
 - **Cross-platform**: Works on desktop and mobile devices
 
 ## 🏗️ Project Structure

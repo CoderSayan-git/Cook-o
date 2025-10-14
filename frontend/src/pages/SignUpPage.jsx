@@ -68,7 +68,7 @@ const SignUpPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-dark-900/50 backdrop-blur-sm flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-teal-900 backdrop-blur-sm flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         {/* Header */}
         <div className="text-center">
@@ -85,12 +85,12 @@ const SignUpPage = () => {
               </div>
             </div>
           </div>
-          <h2 className="text-3xl font-bold text-white mb-2">Join COOK'o</h2>
-          <p className="text-gray-400">Create your account and start cooking with AI</p>
+          <h2 className="text-3xl font-bold text-gray-800 mb-2">Join COOK'o</h2>
+          <p className="text-gray-600">Create your account and start cooking with AI</p>
         </div>
 
         {/* Sign Up Form */}
-        <div className="bg-dark-800/50 backdrop-blur-xl rounded-3xl p-8 border border-dark-700/50 shadow-dark-lg">
+        <div className="bg-cyan-800/50 backdrop-blur-xl rounded-3xl p-8 border border-gray-200/50 shadow-xl">
           <form className="space-y-6" onSubmit={handleSubmit}>
             {error && (
               <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4 text-red-400 text-sm">
@@ -251,7 +251,7 @@ const SignUpPage = () => {
 
             {/* Sign in link */}
             <div className="text-center">
-              <span className="text-gray-400">Already have an account? </span>
+              <span className="text-gray-300">Already have an account? </span>
               <Link to="/signin" className="text-blue-400 hover:text-blue-300 font-medium transition-colors">
                 Sign in
               </Link>

@@ -139,7 +139,7 @@ const ProfilePage = () => {
 
   if (!user) {
     return (
-      <div className="min-h-screen bg-dark-900/50 backdrop-blur-sm flex items-center justify-center">
+      <div className="min-h-screen bg-teal-900 backdrop-blur-sm flex items-center justify-center">
         <div className="text-center">
           <ChefHat className="mx-auto mb-4 text-blue-400 animate-bounce" size={48} />
           <p className="text-gray-400">Please sign in to view your profile</p>
@@ -149,10 +149,10 @@ const ProfilePage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-dark-900/50 backdrop-blur-sm py-12">
+    <div className="min-h-screen bg-teal-900 backdrop-blur-sm py-12">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Profile Header */}
-        <div className="bg-dark-800/50 backdrop-blur-xl rounded-3xl p-8 border border-dark-700/50 shadow-dark-lg mb-8">
+        <div className="bg-cyan-900/70 backdrop-blur-xl rounded-3xl p-8 border border-dark-700/50 shadow-dark-lg mb-8">
           <div className="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
             {/* Profile Picture */}
             <div className="relative">
@@ -204,46 +204,62 @@ const ProfilePage = () => {
             {/* User Info */}
             <div className="flex-1 text-center md:text-left">
               {isEditing ? (
-                <div className="space-y-4">
-                  <input
-                    type="text"
-                    name="name"
-                    value={editData.name}
-                    onChange={handleChange}
-                    className="text-2xl font-bold bg-dark-700/50 text-white border border-dark-600 rounded-xl px-4 py-2 w-full focus:border-blue-500 outline-none"
-                  />
-                  <input
-                    type="email"
-                    name="email"
-                    value={editData.email}
-                    onChange={handleChange}
-                    className="block bg-dark-700/50 text-gray-300 border border-dark-600 rounded-xl px-4 py-2 w-full focus:border-blue-500 outline-none"
-                  />
-                  <textarea
-                    name="bio"
-                    value={editData.bio}
-                    onChange={handleChange}
-                    rows={3}
-                    className="block bg-dark-700/50 text-gray-300 border border-dark-600 rounded-xl px-4 py-2 w-full resize-none focus:border-blue-500 outline-none"
-                  />
-                  <input
-                    type="text"
-                    name="favoritesCuisine"
-                    value={editData.favoritesCuisine}
-                    onChange={handleChange}
-                    placeholder="Favorite cuisines"
-                    className="block bg-dark-700/50 text-gray-300 border border-dark-600 rounded-xl px-4 py-2 w-full focus:border-blue-500 outline-none"
-                  />
-                  <div className="flex space-x-3">
+                <div className="space-y-6">
+                  <div className="space-y-2">
+                    <label className="block text-sm font-medium text-gray-300">Full Name</label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={editData.name}
+                      onChange={handleChange}
+                      className="text-2xl font-bold bg-dark-700/50 text-white border border-dark-600 rounded-xl px-4 py-3 w-full focus:border-blue-500 outline-none transition-colors duration-200"
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <label className="block text-sm font-medium text-gray-300">Email Address</label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={editData.email}
+                      onChange={handleChange}
+                      className="block bg-dark-700/50 text-gray-300 border border-dark-600 rounded-xl px-4 py-3 w-full focus:border-blue-500 outline-none transition-colors duration-200"
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <label className="block text-sm font-medium text-gray-300">Bio</label>
+                    <textarea
+                      name="bio"
+                      value={editData.bio}
+                      onChange={handleChange}
+                      rows={3}
+                      className="block bg-dark-700/50 text-gray-300 border border-dark-600 rounded-xl px-4 py-3 w-full resize-none focus:border-blue-500 outline-none transition-colors duration-200"
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <label className="block text-sm font-medium text-gray-300">Favorite Cuisines</label>
+                    <input
+                      type="text"
+                      name="favoritesCuisine"
+                      value={editData.favoritesCuisine}
+                      onChange={handleChange}
+                      placeholder="e.g., Italian, Asian, Mediterranean"
+                      className="block bg-dark-700/50 text-gray-300 border border-dark-600 rounded-xl px-4 py-3 w-full focus:border-blue-500 outline-none transition-colors duration-200"
+                    />
+                  </div>
+                  
+                  <div className="flex space-x-4 pt-4 gap-6">
                     <button
                       onClick={handleSave}
-                      className="px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl hover:scale-105 transition-all duration-200 font-medium"
+                      className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl hover:scale-105 transition-all duration-200 font-medium"
                     >
-                      Save
+                      Save Changes
                     </button>
                     <button
                       onClick={handleCancel}
-                      className="px-6 py-2 bg-dark-700 text-gray-300 rounded-xl hover:bg-dark-600 transition-all duration-200 font-medium"
+                      className="px-8 py-3 bg-dark-700 text-gray-300 rounded-xl hover:bg-dark-600 transition-all duration-200 font-medium"
                     >
                       Cancel
                     </button>
@@ -281,12 +297,12 @@ const ProfilePage = () => {
 
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          <div className="bg-dark-800/50 backdrop-blur-xl rounded-2xl p-6 border border-dark-700/50 shadow-dark text-center">
+          <div className="bg-cyan-900/70 backdrop-blur-sm rounded-2xl p-6 border border-dark-700/50 shadow-dark text-center">
             <ChefHat className="w-8 h-8 text-blue-400 mx-auto mb-3" />
             <h3 className="text-2xl font-bold text-white mb-1">{user.recipesGenerated}</h3>
             <p className="text-gray-400">Recipes Generated</p>
           </div>
-          <div className="bg-dark-800/50 backdrop-blur-xl rounded-2xl p-6 border border-dark-700/50 shadow-dark text-center">
+          <div className="bg-cyan-900/70 backdrop-blur-sm rounded-2xl p-6 border border-dark-700/50 shadow-dark text-center">
             <Heart className="w-8 h-8 text-red-400 mx-auto mb-3" />
             <h3 className="text-2xl font-bold text-white mb-1">{user.favoriteRecipes}</h3>
             <p className="text-gray-400">Favorite Recipes</p>
