@@ -214,17 +214,6 @@ Toggle recipe favorite status. (Requires Authentication)
 - **Accessibility**: Proper contrast ratios and keyboard navigation
 - **Real-time Feedback**: Loading states and error handling
 
-## � Security & Environment Variables
-
-### Production Security Checklist
-
-- ✅ **Environment Variables**: All sensitive data stored in environment variables
-- ✅ **JWT Authentication**: Secure token-based authentication system
-- ✅ **Password Hashing**: Bcrypt for secure password storage
-- ✅ **Input Validation**: Comprehensive request validation
-- ✅ **CORS Configuration**: Proper cross-origin resource sharing setup
-- ✅ **Rate Limiting**: API rate limiting for abuse prevention
-- ✅ **Error Handling**: Secure error responses without sensitive data exposure
 
 ### Required Environment Variables
 
@@ -319,12 +308,6 @@ We welcome contributions! Please follow these steps:
 4. **Push to branch**: `git push origin feature/amazing-feature`
 5. **Open a Pull Request**
 
-### Development Guidelines
-
-- Follow ESLint and Prettier configurations
-- Write unit tests for new features
-- Update documentation for API changes
-- Follow semantic commit message conventions
 
 ## 📊 Tech Stack
 
@@ -344,7 +327,7 @@ We welcome contributions! Please follow these steps:
 
 **DevOps & Deployment:**
 - Vercel (Frontend)
-- Railway/Heroku (Backend)
+- Render (Backend)
 - MongoDB Atlas (Database)
 - GitHub Actions (CI/CD)
 
@@ -358,7 +341,6 @@ Made with ❤️ for food lovers and cooking enthusiasts worldwide.
 ## 🙏 Acknowledgments
 
 - [Google Gemini AI](https://ai.google.dev/) for powerful recipe generation
-- [Lucide](https://lucide.dev/) for beautiful icons
 - [Tailwind CSS](https://tailwindcss.com/) for utility-first styling
 - Open source community for inspiration and tools
 
