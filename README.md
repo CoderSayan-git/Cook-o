@@ -234,12 +234,6 @@ FRONTEND_URL=https://your-frontend-domain.com
 VITE_API_BASE_URL=https://your-backend-api-url.com
 ```
 
-## 📱 Responsive Design
-
-The app is fully responsive with breakpoints for:
-- Mobile: < 768px
-- Tablet: 768px - 1024px
-- Desktop: > 1024px
 
 ## 🤝 Contributing
 
