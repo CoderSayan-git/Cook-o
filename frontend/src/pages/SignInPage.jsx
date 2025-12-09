@@ -171,12 +171,6 @@ const SignInPage = () => {
           </form>
         </div>
 
-        {/* Demo credentials */}
-        <div className="bg-teal-800/50 border border-dark-700/50 rounded-xl p-4 text-center">
-          <p className="text-gray-300 text-sm mb-2 font-medium">Demo credentials:</p>
-          <p className="text-gray-200 text-sm font-mono">Email: demo@cooker.ai</p>
-          <p className="text-gray-200 text-sm font-mono">Password: demo123</p>
-        </div>
       </div>
     </div>
   )
