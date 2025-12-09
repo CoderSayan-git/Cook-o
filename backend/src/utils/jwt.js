@@ -23,7 +23,7 @@ const generateTokenForUser = (user) => {
   return generateToken(payload);
 };
 
-// Extract token from request headers
+// Extract token from request header
 const extractTokenFromHeader = (authHeader) => {
   if (!authHeader) return null;
   

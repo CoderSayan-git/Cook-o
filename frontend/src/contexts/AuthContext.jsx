@@ -25,6 +25,7 @@ const apiCall = async (endpoint, options = {}) => {
   const token = localStorage.getItem('token')
   const url = `${API_BASE_URL}${endpoint}`
   
+  //  JSON formatting
   const config = {
     headers: {
       'Content-Type': 'application/json',
